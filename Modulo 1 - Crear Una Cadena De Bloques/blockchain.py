@@ -13,6 +13,8 @@ import datetime
 import hashlib
 import json
 from flask import Flask, jsonify
+import jinja2
+print(jinja2.__version__)
 
 #Parte 1 - Crear la cadena de Bloques
 class Blockchain:
@@ -87,7 +89,7 @@ def mine_block():
     return jsonify(response), 200
 
 # Obtener La Cadena De Bloques Al Completo
-@app.rout('/get_chain', methods=['GET'])
+@app.route('/get_chain', methods=['GET'])
 def get_chain():
     response = {'chain' : blockchain.chain,
                 'length' : len(blockchain.chain)}
